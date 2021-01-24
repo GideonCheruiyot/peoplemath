@@ -34,7 +34,7 @@ export class ObjectiveComponent implements OnInit {
   @Input() isEditingEnabled?: boolean;
   @Input() isReorderingEnabled?: boolean;
   @Input() otherBuckets?: readonly ImmutableBucket[];
-  @Output() onMoveBucket = new EventEmitter<[ImmutableObjective, ImmutableObjective, ImmutableBucket]>();
+  @Output() moveBucket = new EventEmitter<[ImmutableObjective, ImmutableObjective, ImmutableBucket]>();
   @Output() delete = new EventEmitter<ImmutableObjective>();
   @Output() changed = new EventEmitter<[ImmutableObjective, ImmutableObjective]>();
 
@@ -123,7 +123,7 @@ export class ObjectiveComponent implements OnInit {
       okAction: 'OK',
       unit: this.unit!,
       otherBuckets: this.otherBuckets!,
-      onMoveBucket: this.onMoveBucket,
+      onMoveBucket: this.moveBucket,
       onDelete: this.delete,
     };
     const dialogRef = this.dialog.open(EditObjectiveDialogComponent, {data: dialogData});
