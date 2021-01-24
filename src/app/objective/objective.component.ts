@@ -59,7 +59,7 @@ export class ObjectiveComponent implements OnInit {
 
   assignmentSummary(): string {
     return this.objective!.assignments.filter(a => a.commitment > 0)
-        .map(a => a.personId + ": " + a.commitment).join(", ");
+        .map(a => a.personId + ': ' + a.commitment).join(', ');
   }
 
   totalAssignedResources(): number {
@@ -74,9 +74,9 @@ export class ObjectiveComponent implements OnInit {
   }
 
   personAssignmentData(): PersonAssignmentData[] {
-    let assignmentData: PersonAssignmentData[] = [];
+    const assignmentData: PersonAssignmentData[] = [];
     this.unallocatedTime!.forEach((unallocated, personId) => {
-      let currentAssignment = this.currentAssignment(personId);
+      const currentAssignment = this.currentAssignment(personId);
       if (unallocated > 0 || currentAssignment > 0) {
         assignmentData.push({
           username: personId,
@@ -93,13 +93,13 @@ export class ObjectiveComponent implements OnInit {
       return;
     }
     const dialogData: AssignmentDialogData = {
-      'objective': this.objective!.toOriginal(),
-      'people': this.personAssignmentData(),
-      'unit': this.unit!,
-      'columns': ['person', 'available', 'assign', 'actions']};
+      objective: this.objective!.toOriginal(),
+      people: this.personAssignmentData(),
+      unit: this.unit!,
+      columns: ['person', 'available', 'assign', 'actions']};
     const dialogRef = this.dialog.open(AssignmentDialogComponent, {
-      'width': '700px',
-      'data': dialogData});
+      width: '700px',
+      data: dialogData});
     dialogRef.afterClosed().subscribe((result?: AssignmentDialogData) => {
       if (!result) {
         return;
