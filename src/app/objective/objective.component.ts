@@ -35,7 +35,7 @@ export class ObjectiveComponent implements OnInit {
   @Input() isReorderingEnabled?: boolean;
   @Input() otherBuckets?: readonly ImmutableBucket[];
   @Output() onMoveBucket = new EventEmitter<[ImmutableObjective, ImmutableObjective, ImmutableBucket]>();
-  @Output() onDelete = new EventEmitter<ImmutableObjective>();
+  @Output() delete = new EventEmitter<ImmutableObjective>();
   @Output() changed = new EventEmitter<[ImmutableObjective, ImmutableObjective]>();
 
   constructor(public dialog: MatDialog) { }
@@ -124,7 +124,7 @@ export class ObjectiveComponent implements OnInit {
       unit: this.unit!,
       otherBuckets: this.otherBuckets!,
       onMoveBucket: this.onMoveBucket,
-      onDelete: this.onDelete,
+      onDelete: this.delete,
     };
     const dialogRef = this.dialog.open(EditObjectiveDialogComponent, {data: dialogData});
     dialogRef.afterClosed().subscribe(newObjective => {

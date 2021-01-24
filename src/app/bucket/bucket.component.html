@@ -29,7 +29,7 @@
         [isReorderingEnabled]="showOrderButtons"
         [otherBuckets]="otherBuckets"
         (onMoveBucket)="moveObjective($event[0], $event[1], $event[2])"
-        (onDelete)="deleteObjective($event)"
+        (delete)="deleteObjective($event)"
         (changed)="onObjectiveChanged($event[0], $event[1])"></app-objective>
     </mat-list-item>
 </mat-list>
@@ -43,7 +43,7 @@
             [isReorderingEnabled]="showOrderButtons"
             [otherBuckets]="otherBuckets"
             (onMoveBucket)="moveObjective($event[0], $event[1], $event[2])"
-            (onDelete)="deleteObjective($event)"
+            (delete)="deleteObjective($event)"
             (changed)="onObjectiveChanged($event[0], $event[1])"></app-objective>
     </mat-list-item>
 </mat-list>
