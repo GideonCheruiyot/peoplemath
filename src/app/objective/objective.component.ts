@@ -36,7 +36,7 @@ export class ObjectiveComponent implements OnInit {
   @Input() otherBuckets?: readonly ImmutableBucket[];
   @Output() onMoveBucket = new EventEmitter<[ImmutableObjective, ImmutableObjective, ImmutableBucket]>();
   @Output() onDelete = new EventEmitter<ImmutableObjective>();
-  @Output() onChanged = new EventEmitter<[ImmutableObjective, ImmutableObjective]>();
+  @Output() changed = new EventEmitter<[ImmutableObjective, ImmutableObjective]>();
 
   constructor(public dialog: MatDialog) { }
 
@@ -108,7 +108,7 @@ export class ObjectiveComponent implements OnInit {
           .map((pad: PersonAssignmentData) => new ImmutableAssignment(
             new Assignment(pad.username, pad.assign)));
       const newObjective = this.objective!.withAssignments(newAssignments);
-      this.onChanged.emit([this.objective!, newObjective]);
+      this.changed.emit([this.objective!, newObjective]);
     });
   }
 
@@ -129,7 +129,7 @@ export class ObjectiveComponent implements OnInit {
     const dialogRef = this.dialog.open(EditObjectiveDialogComponent, {data: dialogData});
     dialogRef.afterClosed().subscribe(newObjective => {
       if (newObjective) {
-        this.onChanged.emit([this.objective!, newObjective]);
+        this.changed.emit([this.objective!, newObjective]);
       }
     });
   }
