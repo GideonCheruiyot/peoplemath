@@ -154,7 +154,7 @@ describe('StorageService', () => {
       people: [],
       buckets: [],
       lastUpdateUUID: '',
-    };});
+    }; });
     service.getPeriods('testteam').subscribe(data => expect(data).toEqual(periods));
 
     const req = httpTestingController.expectOne('/api/period/testteam/');
