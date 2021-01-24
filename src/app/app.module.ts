@@ -29,7 +29,7 @@ import { PeriodComponent } from './period/period.component';
 import { StorageService } from './storage.service';
 import { BucketComponent } from './bucket/bucket.component';
 import { ObjectiveComponent } from './objective/objective.component';
-import { PeopleComponent, EditPersonDialog } from './people/people.component';
+import { PeopleComponent, EditPersonDialogComponent } from './people/people.component';
 import { AssignmentsByPersonComponent } from './assignments-by-person/assignments-by-person.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
@@ -67,7 +67,7 @@ import {ModalComponent} from './modal/modal.component';
     BucketComponent,
     ObjectiveComponent,
     PeopleComponent,
-    EditPersonDialog,
+    EditPersonDialogComponent,
     AssignmentsByPersonComponent,
     AssignmentDialogComponent,
     EditObjectiveDialogComponent,
